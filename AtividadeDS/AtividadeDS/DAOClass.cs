@@ -9,6 +9,7 @@ namespace AtividadeDS
 {
     class DAOClass
     {
+        
         string resposta = "";
         private Banco db;
 
@@ -45,14 +46,11 @@ namespace AtividadeDS
                     Console.ForegroundColor = ConsoleColor.Blue;
 
                     dao.Insert(usuario);
+
                     var leitor = dao.Listar();
 
-                    foreach (var usuarios in leitor)
-                    {
-                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
-                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+                    dao.RetornaLista();
 
-                    };
                     Console.ReadLine();
 
                     break;
@@ -65,12 +63,8 @@ namespace AtividadeDS
                     dao.Salvar(usuario);
                     leitor = dao.Listar();
 
-                    foreach (var usuarios in leitor)
-                    {
-                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
-                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+                    dao.RetornaLista();
 
-                    };
                     Console.ReadLine();
 
                     break;
@@ -80,27 +74,15 @@ namespace AtividadeDS
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
                     dao.Excluir(usuario);
 
-                    leitor = dao.Listar();
-
-                    foreach (var usuarios in leitor)
-                    {
-                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
-                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
-
-                    };
+                    dao.RetornaLista();
+                    
                     Console.ReadLine();
 
                     break;
 
                 case "3":
-                    leitor = dao.Listar();
 
-                    foreach (var usuarios in leitor)
-                    {
-                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
-                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
-
-                    };
+                    dao.RetornaLista();
                     Console.ReadLine();
 
                     break;
@@ -215,6 +197,20 @@ namespace AtividadeDS
             }
             retorno.Close();
             return usuarios;
+        }
+
+        public void RetornaLista()
+        {
+            var dao = new DAOClass();
+            var leitor = dao.Listar();
+
+            foreach (var usuarios in leitor)
+            {
+                Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
+                usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+
+            };
+
         }
 
     }
