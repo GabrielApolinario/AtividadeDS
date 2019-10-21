@@ -11,3 +11,10 @@ C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\Ati
 C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csprojResolveAssemblyReference.cache
 C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.exe
 C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.pdb
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.exe.config
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.exe
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.pdb
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csprojAssemblyReference.cache
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csproj.CoreCompileInputs.cache
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.exe
+C:\Users\2binfo\Documents\Gabriel Ap\ASP.NET\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.pdb

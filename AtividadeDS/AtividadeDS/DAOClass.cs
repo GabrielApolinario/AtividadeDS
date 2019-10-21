@@ -9,6 +9,7 @@ namespace AtividadeDS
 {
     class DAOClass
     {
+        string resposta = "";
         private Banco db;
 
         public void Menu()
@@ -16,13 +17,14 @@ namespace AtividadeDS
             DAOClass dao = new DAOClass();
             Usuario usuario = new Usuario();
             Console.WriteLine("===========MENU==========\n" +
-                " 0 - Cadastrar Usuario\n" +
-                " 1 - Editar Usuario\n" +
-                " 2 - Excluir Usuario\n" +
-                " 3 - Listar Usuarios\n" +
-                " 4 - Sair \n" +
-                "=========================");
-            string resposta = Console.ReadLine();
+                              " 0 - Cadastrar Usuario\n" +
+                              " 1 - Editar Usuario\n" +
+                              " 2 - Excluir Usuario\n" +
+                              " 3 - Listar Usuarios\n" +
+                              " 4 - Sair \n" +
+                              "=========================");
+            resposta = Console.ReadLine();
+
 
             switch (resposta)
             {
@@ -43,9 +45,16 @@ namespace AtividadeDS
                     Console.ForegroundColor = ConsoleColor.Blue;
 
                     dao.Insert(usuario);
-                    //EXIBIR LISTA, ARRUMAR METODO
-                    dao.Listar();
+                    var leitor = dao.Listar();
+
+                    foreach (var usuarios in leitor)
+                    {
+                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
+                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+
+                    };
                     Console.ReadLine();
+
                     break;
 
                 case "1":
@@ -54,24 +63,46 @@ namespace AtividadeDS
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
                     Console.ForegroundColor = ConsoleColor.Blue;
                     dao.Salvar(usuario);
-                    //EXIBIR LISTA, ARRUMAR METODO
-                    dao.Listar();
+                    leitor = dao.Listar();
+
+                    foreach (var usuarios in leitor)
+                    {
+                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
+                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+
+                    };
                     Console.ReadLine();
+
                     break;
 
                case "2":
                     Console.WriteLine("Digite o ID do usuário a ser excluido");
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
                     dao.Excluir(usuario);
-                    //EXIBIR LISTA, ARRUMAR METODO
-                    dao.Listar();
+
+                    leitor = dao.Listar();
+
+                    foreach (var usuarios in leitor)
+                    {
+                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
+                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+
+                    };
                     Console.ReadLine();
+
                     break;
 
                 case "3":
-                    //EXIBIR LISTA, ARRUMAR METODO
-                    dao.Listar();
+                    leitor = dao.Listar();
+
+                    foreach (var usuarios in leitor)
+                    {
+                        Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
+                        usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
+
+                    };
                     Console.ReadLine();
+
                     break;
 
                 case "4":
@@ -86,6 +117,15 @@ namespace AtividadeDS
             }
 
         }
+
+        public void Loop() {
+            var dao = new DAOClass();
+            while (resposta != "4")
+              {
+                dao.Menu();
+              }
+         }
+
         private void Insert(Usuario usuario)
         {
             var StrQuery = "";

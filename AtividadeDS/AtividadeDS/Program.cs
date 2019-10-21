@@ -13,6 +13,7 @@ namespace AtividadeDS
             Console.ForegroundColor = ConsoleColor.Blue;
             DAOClass dao = new DAOClass();
             dao.Menu();
+            dao.Loop();
         }
     }
 }
