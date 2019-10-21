@@ -57,8 +57,8 @@ namespace AtividadeDS
                     //EXIBIR LISTA, ARRUMAR METODO
                     dao.Listar();
                     Console.ReadLine();
-
                     break;
+
                case "2":
                     Console.WriteLine("Digite o ID do usuário a ser excluido");
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
@@ -77,7 +77,9 @@ namespace AtividadeDS
                 case "4":
                     Environment.Exit(0);
                     break;
+
                 default:
+                    Console.Clear();
                     Console.WriteLine("Resposta inválida! Digite uma resposta de 0 até 4\n");
                     dao.Menu();
                     break;

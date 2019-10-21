@@ -5,3 +5,9 @@ C:\Users\Gabriel\Desktop\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csprojAss
 C:\Users\Gabriel\Desktop\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csproj.CoreCompileInputs.cache
 C:\Users\Gabriel\Desktop\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.exe
 C:\Users\Gabriel\Desktop\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.pdb
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.exe.config
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.exe
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\bin\Debug\AtividadeDS.pdb
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.csprojResolveAssemblyReference.cache
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.exe
+C:\WORK_GSILVA\Arquivos_GSILVA\AtividadeDS\AtividadeDS\AtividadeDS\obj\Debug\AtividadeDS.pdb
