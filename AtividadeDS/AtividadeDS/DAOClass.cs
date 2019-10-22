@@ -17,15 +17,17 @@ namespace AtividadeDS
         {
             DAOClass dao = new DAOClass();
             Usuario usuario = new Usuario();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("===========MENU==========\n" +
                               " 0 - Cadastrar Usuario\n" +
                               " 1 - Editar Usuario\n" +
                               " 2 - Excluir Usuario\n" +
                               " 3 - Listar Usuarios\n" +
                               " 4 - Sair \n" +
-                              "=========================");
-            resposta = Console.ReadLine();
+                              "=========================\n\n" +
+                              "Escolha uma das opções acima!");
 
+            resposta = Console.ReadLine();
 
             switch (resposta)
             {
@@ -33,73 +35,100 @@ namespace AtividadeDS
                     Console.WriteLine("Digite o Nome do usuário");
                     Console.ForegroundColor = ConsoleColor.Red;
                     usuario.Nome = Console.ReadLine();
-                    Console.ForegroundColor = ConsoleColor.Blue;
 
-                    Console.WriteLine("Digite o Cargo do usuário");
+                    Console.WriteLine("Digite o Cargo do usuário", Console.ForegroundColor = ConsoleColor.Blue);
                     Console.ForegroundColor = ConsoleColor.Red;
                     usuario.Cargo = Console.ReadLine();
-                    Console.ForegroundColor = ConsoleColor.Blue;
 
-                    Console.WriteLine("Digite a Data de nascimento do usuário");
+                    Console.WriteLine("Digite a Data de nascimento do usuário", Console.ForegroundColor = ConsoleColor.Blue);
                     Console.ForegroundColor = ConsoleColor.Red;
                     usuario.DataNasc = DateTime.Parse(Console.ReadLine());
-                    Console.ForegroundColor = ConsoleColor.Blue;
 
                     dao.Insert(usuario);
 
-                    var leitor = dao.Listar();
-
+                    //var leitor = dao.Listar();
                     dao.RetornaLista();
-
                     Console.ReadLine();
-
                     break;
 
                 case "1":
-                    Console.WriteLine("Digite o ID do usuário");
+                    Console.WriteLine("Digite o ID do usuário", Console.ForegroundColor = ConsoleColor.Blue);
                     Console.ForegroundColor = ConsoleColor.Red;
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    dao.Salvar(usuario);
-                    leitor = dao.Listar();
 
+                    if (usuario.Id > 0)
+                    {
+                        //Atualiza usuario
+                        Console.WriteLine("Digite o Nome do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.Nome = Console.ReadLine();
+
+                        Console.WriteLine("Digite o Cargo do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.Cargo = Console.ReadLine();
+
+                        Console.WriteLine("Digite a Data de nascimento do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.DataNasc = DateTime.Parse(Console.ReadLine());
+
+                        Atualizar(usuario);
+                    }
+                    else
+                    {
+                        //Cria usuário
+                        Console.WriteLine("Digite o Nome do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.Nome = Console.ReadLine();
+
+
+                        Console.WriteLine("Digite o Cargo do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.Cargo = Console.ReadLine();
+
+
+                        Console.WriteLine("Digite a Data de nascimento do usuário", Console.ForegroundColor = ConsoleColor.Blue);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        usuario.DataNasc = DateTime.Parse(Console.ReadLine());
+                    }
+
+                    //leitor = dao.Listar();
                     dao.RetornaLista();
-
                     Console.ReadLine();
-
                     break;
 
                case "2":
-                    Console.WriteLine("Digite o ID do usuário a ser excluido");
+                    Console.WriteLine("Digite o ID do usuário a ser excluido", Console.ForegroundColor = ConsoleColor.Blue);
+                    Console.ForegroundColor = ConsoleColor.Red;
                     usuario.Id = Convert.ToInt32(Console.ReadLine());
+
                     dao.Excluir(usuario);
 
                     dao.RetornaLista();
-                    
                     Console.ReadLine();
-
                     break;
 
                 case "3":
-
                     dao.RetornaLista();
                     Console.ReadLine();
-
                     break;
 
                 case "4":
+                    Console.WriteLine("Obrigado por utilizar o programa, não esqueça de deixar seu feedback :)\n" +
+                        "Pressione qualquer tecla para sair!", Console.ForegroundColor  = ConsoleColor.Green);
+                    Console.ReadKey();
                     Environment.Exit(0);
                     break;
 
                 default:
                     Console.Clear();
-                    Console.WriteLine("Resposta inválida! Digite uma resposta de 0 até 4\n");
+                    Console.WriteLine("Resposta inválida! Digite uma resposta de 0 a 4\n", Console.ForegroundColor = ConsoleColor.Red);
                     dao.Menu();
                     break;
             }
 
         }
 
+        //Metodo de Loop que irá chamar o menu enquanto a resposta não for = 4
         public void Loop() {
             var dao = new DAOClass();
             while (resposta != "4")
@@ -123,21 +152,7 @@ namespace AtividadeDS
 
         private void Atualizar(Usuario usuario)
         {
-            Console.WriteLine("Digite o Nome do usuário");
-            Console.ForegroundColor = ConsoleColor.Red;
-            usuario.Nome = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.Blue;
-
-            Console.WriteLine("Digite o Cargo do usuário");
-            Console.ForegroundColor = ConsoleColor.Red;
-            usuario.Cargo = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.Blue;
-
-            Console.WriteLine("Digite a Data de nascimento do usuário");
-            Console.ForegroundColor = ConsoleColor.Red;
-            usuario.DataNasc = DateTime.Parse(Console.ReadLine());
-            Console.ForegroundColor = ConsoleColor.Blue;
-
+           
             var StrQuery = "";
             StrQuery += "UPDATE Usuario SET ";
             StrQuery += string.Format("Nome = '{0}',", usuario.Nome);
@@ -199,6 +214,7 @@ namespace AtividadeDS
             return usuarios;
         }
 
+        //Metodo que faz um Loop para trazer a lista de usuarios
         public void RetornaLista()
         {
             var dao = new DAOClass();
@@ -208,7 +224,6 @@ namespace AtividadeDS
             {
                 Console.WriteLine("Id: {0}, Nome: {1}, Cargo: {2}, Data: {3}", usuarios.Id,
                 usuarios.Nome, usuarios.Cargo, usuarios.DataNasc);
-
             };
 
         }

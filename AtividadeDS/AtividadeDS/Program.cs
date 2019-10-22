@@ -10,7 +10,8 @@ namespace AtividadeDS
     {
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
             DAOClass dao = new DAOClass();
             dao.Menu();
             dao.Loop();
